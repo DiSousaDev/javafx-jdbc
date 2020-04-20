@@ -2,6 +2,7 @@ package model.dao.impl;
 
 import db.DB;
 import db.DbException;
+import db.DbIntegrityException;
 import model.dao.DepartmentDao;
 import model.entities.Department;
 
@@ -71,23 +72,15 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 
     @Override
     public void deleteById(Integer id){
-
         PreparedStatement st = null;
-
         try {
             st = conn.prepareStatement("DELETE FROM department WHERE Id = ?");
+            
+            st.setInt(1, id);            
+            st.executeUpdate();
 
-            st.setInt(1, id);
-
-            int rows = st.executeUpdate();
-
-            if(rows == 0){
-                throw new DbException("Id Não localizado.");
-            }else{
-                System.out.println("Deletado com sucesso!");
-            }
         } catch (SQLException erro) {
-            throw new DbException(erro.getMessage());
+            throw new DbIntegrityException(erro.getMessage());
         } finally {
             DB.closeStatement(st);
         }
