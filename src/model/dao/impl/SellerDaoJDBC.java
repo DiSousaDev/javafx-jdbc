@@ -95,8 +95,6 @@ public class SellerDaoJDBC implements SellerDao {
 
             if(rows == 0){
                 throw new DbException("Id Não localizado.");
-            }else{
-                System.out.println("Deletado com sucesso!");
             }
         } catch (SQLException erro) {
             throw new DbException(erro.getMessage());
