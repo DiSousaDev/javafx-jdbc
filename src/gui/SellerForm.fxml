@@ -54,7 +54,7 @@
             <TextField fx:id="txtBaseSalary" prefHeight="25.0" prefWidth="141.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <DatePicker fx:id="dpBirthDate" prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label text="Department" GridPane.rowIndex="5" />
-            <ComboBox prefHeight="25.0" prefWidth="206.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <ComboBox fx:id="comboBoxDepartment" prefHeight="25.0" prefWidth="206.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
    </children>
